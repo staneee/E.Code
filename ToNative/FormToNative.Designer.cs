@@ -44,6 +44,10 @@
             this.txtOutPutPath = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.txtLog = new System.Windows.Forms.RichTextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.btnSelectIcoPath = new System.Windows.Forms.Button();
+            this.txtAppIcoPath = new System.Windows.Forms.TextBox();
+            this.btnGetDll = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -75,6 +79,10 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnGetDll);
+            this.panel1.Controls.Add(this.label5);
+            this.panel1.Controls.Add(this.btnSelectIcoPath);
+            this.panel1.Controls.Add(this.txtAppIcoPath);
             this.panel1.Controls.Add(this.cmbMode);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.btnExec);
@@ -90,7 +98,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(652, 127);
+            this.panel1.Size = new System.Drawing.Size(637, 154);
             this.panel1.TabIndex = 3;
             // 
             // cmbMode
@@ -102,16 +110,16 @@
             "winform      生成Windows窗体程序",
             "win7 x86     生成支持32位 Win7 以上系统的程序",
             "winXP x86   生成支持32位 Win XP 以上系统的程序",
-            "linux           生成Linux程序  --  暂未支持"});
-            this.cmbMode.Location = new System.Drawing.Point(102, 96);
+            "linux           生成Linux程序"});
+            this.cmbMode.Location = new System.Drawing.Point(102, 124);
             this.cmbMode.Name = "cmbMode";
-            this.cmbMode.Size = new System.Drawing.Size(447, 20);
+            this.cmbMode.Size = new System.Drawing.Size(352, 20);
             this.cmbMode.TabIndex = 11;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(15, 98);
+            this.label4.Location = new System.Drawing.Point(15, 126);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(83, 12);
             this.label4.TabIndex = 10;
@@ -119,9 +127,9 @@
             // 
             // btnExec
             // 
-            this.btnExec.Location = new System.Drawing.Point(555, 94);
+            this.btnExec.Location = new System.Drawing.Point(460, 122);
             this.btnExec.Name = "btnExec";
-            this.btnExec.Size = new System.Drawing.Size(75, 23);
+            this.btnExec.Size = new System.Drawing.Size(89, 23);
             this.btnExec.TabIndex = 9;
             this.btnExec.Text = "Native";
             this.btnExec.UseVisualStyleBackColor = true;
@@ -129,7 +137,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(13, 71);
+            this.label3.Location = new System.Drawing.Point(13, 99);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(83, 12);
             this.label3.TabIndex = 6;
@@ -137,7 +145,7 @@
             // 
             // btnAbout
             // 
-            this.btnAbout.Location = new System.Drawing.Point(555, 66);
+            this.btnAbout.Location = new System.Drawing.Point(555, 94);
             this.btnAbout.Name = "btnAbout";
             this.btnAbout.Size = new System.Drawing.Size(75, 23);
             this.btnAbout.TabIndex = 8;
@@ -146,7 +154,7 @@
             // 
             // txtOutPutAppName
             // 
-            this.txtOutPutAppName.Location = new System.Drawing.Point(102, 67);
+            this.txtOutPutAppName.Location = new System.Drawing.Point(102, 95);
             this.txtOutPutAppName.Name = "txtOutPutAppName";
             this.txtOutPutAppName.Size = new System.Drawing.Size(447, 21);
             this.txtOutPutAppName.TabIndex = 7;
@@ -180,9 +188,9 @@
             // 
             this.panel2.Controls.Add(this.txtLog);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 127);
+            this.panel2.Location = new System.Drawing.Point(0, 154);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(652, 321);
+            this.panel2.Size = new System.Drawing.Size(637, 294);
             this.panel2.TabIndex = 4;
             // 
             // txtLog
@@ -190,13 +198,47 @@
             this.txtLog.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtLog.Location = new System.Drawing.Point(0, 0);
             this.txtLog.Name = "txtLog";
-            this.txtLog.Size = new System.Drawing.Size(652, 321);
+            this.txtLog.Size = new System.Drawing.Size(637, 294);
             this.txtLog.TabIndex = 0;
             this.txtLog.Text = "";
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(13, 70);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(83, 12);
+            this.label5.TabIndex = 12;
+            this.label5.Text = "输出程序图标:";
+            // 
+            // btnSelectIcoPath
+            // 
+            this.btnSelectIcoPath.Location = new System.Drawing.Point(555, 65);
+            this.btnSelectIcoPath.Name = "btnSelectIcoPath";
+            this.btnSelectIcoPath.Size = new System.Drawing.Size(75, 23);
+            this.btnSelectIcoPath.TabIndex = 14;
+            this.btnSelectIcoPath.Text = "选择";
+            this.btnSelectIcoPath.UseVisualStyleBackColor = true;
+            // 
+            // txtAppIcoPath
+            // 
+            this.txtAppIcoPath.Location = new System.Drawing.Point(102, 66);
+            this.txtAppIcoPath.Name = "txtAppIcoPath";
+            this.txtAppIcoPath.Size = new System.Drawing.Size(447, 21);
+            this.txtAppIcoPath.TabIndex = 13;
+            // 
+            // btnGetDll
+            // 
+            this.btnGetDll.Location = new System.Drawing.Point(555, 122);
+            this.btnGetDll.Name = "btnGetDll";
+            this.btnGetDll.Size = new System.Drawing.Size(75, 23);
+            this.btnGetDll.TabIndex = 15;
+            this.btnGetDll.Text = "Dll选择";
+            this.btnGetDll.UseVisualStyleBackColor = true;
+            // 
             // FormToNative
             // 
-            this.ClientSize = new System.Drawing.Size(652, 448);
+            this.ClientSize = new System.Drawing.Size(637, 448);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -226,5 +268,9 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox cmbMode;
         private System.Windows.Forms.RichTextBox txtLog;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button btnSelectIcoPath;
+        private System.Windows.Forms.TextBox txtAppIcoPath;
+        private System.Windows.Forms.Button btnGetDll;
     }
 }

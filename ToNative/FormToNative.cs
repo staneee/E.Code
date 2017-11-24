@@ -29,15 +29,35 @@ namespace ToNative
             this.btnSelectSourcePath.Click += BtnSelectSourcePath_Click;
             this.btnAbout.Click += BtnAbout_Click;
             this.btnExec.Click += BtnExec_Click;
+            this.btnSelectIcoPath.Click += BtnSelectIcoPath_Click;
+            this.btnGetDll.Click += BtnGetDll_Click;
 
             this.txtSourcePath.TextChanged += TxtSourcePath_TextChanged;
             this.txtOutPutAppName.TextChanged += TxtOutPutAppName_TextChanged;
 
+            txtLog.TextChanged += TxtLog_TextChanged;
 
             cmbMode.SelectedIndex = 0;
         }
 
+        private void BtnGetDll_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.ProcessStartInfo psi = new System.Diagnostics.ProcessStartInfo("Explorer.exe");
+            psi.Arguments = $"/e,{Path.Combine(Application.StartupPath, @"AppData\tonative\tools\备用DLL")}";
+            System.Diagnostics.Process.Start(psi);
+        }
 
+        private void BtnSelectIcoPath_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Filter = "图标文件|*.ico";
+            ofd.Multiselect = false;
+            ofd.Title = "选择输出程序图标";
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                txtAppIcoPath.Text = ofd.FileName;
+            }
+        }
 
         bool isBtnSelectInPath = false;
         private void BtnSelectSourcePath_Click(object sender, EventArgs e)
@@ -122,7 +142,7 @@ namespace ToNative
 
         private void BtnAbout_Click(object sender, EventArgs e)
         {
-            var txt = File.ReadAllText(@".\AppData\tonative\readme.txt", Encoding.Default);
+            var txt = File.ReadAllText(@".\AppData\tonative\使用说明.txt", Encoding.Default);
             MessageBox.Show(txt, "关于ToNative");
         }
 
@@ -161,13 +181,16 @@ namespace ToNative
                 case 3:
                     sb.Append(" --xp ");
                     break;
-                //case 4:
-                //    sb.Append(" --lin ");
-                //    break;
-                default:
-                    MessageBox.Show("暂未支持！", "提示");
-                    return;
+                case 4:
+                    sb.Append(" --lin ");
+                    break;
             }
+            var icoPath = txtAppIcoPath.Text.Trim();
+            if (!icoPath.IsNull())
+            {
+                sb.Append($" --ico:\"{txtAppIcoPath.Text.Trim()}\" ");
+            }
+
 
             sb.Append($"\"{txtSourcePath.Text}\" ");
 
@@ -200,6 +223,18 @@ namespace ToNative
             {
                 this.txtLog.AppendText(par);
             }), str);
+        }
+
+
+        /// <summary>
+        /// 日志文件内容修改时滑动到底部
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void TxtLog_TextChanged(object sender, EventArgs e)
+        {
+            txtLog.SelectionStart = txtLog.Text.Length;
+            txtLog.ScrollToCaret();
         }
     }
 }
