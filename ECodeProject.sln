@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27004.2009
+VisualStudioVersion = 15.0.27130.2024
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ECode.Common", "ECode.Common\ECode.Common.csproj", "{0D1E2FAF-38A2-4387-81B2-8F6B16002D2D}"
 EndProject
@@ -17,7 +17,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ECode", "ECode\ECode.csproj
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libs", "Libs", "{FFCA3E8F-E577-441A-89FE-8388B811999C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EHttp", "EHttp\EHttp.csproj", "{D2D36A9A-050A-4D2E-AB81-C46182062323}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EHttp", "EHttp\EHttp.csproj", "{D2D36A9A-050A-4D2E-AB81-C46182062323}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HttpSimulateForWPF", "HttpSimulateForWPF\HttpSimulateForWPF.csproj", "{95493052-C023-43FF-AEEF-17115527C330}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -53,6 +55,10 @@ Global
 		{D2D36A9A-050A-4D2E-AB81-C46182062323}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D2D36A9A-050A-4D2E-AB81-C46182062323}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D2D36A9A-050A-4D2E-AB81-C46182062323}.Release|Any CPU.Build.0 = Release|Any CPU
+		{95493052-C023-43FF-AEEF-17115527C330}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95493052-C023-43FF-AEEF-17115527C330}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95493052-C023-43FF-AEEF-17115527C330}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95493052-C023-43FF-AEEF-17115527C330}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

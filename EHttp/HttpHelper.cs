@@ -86,7 +86,7 @@ namespace EHttp
                 {
                     // https
                     //ServicePointManager.ServerCertificateValidationCallback = delegate { return true; };
-                    ServicePointManager.SecurityProtocol = data.HttpsType;
+                    ServicePointManager.SecurityProtocol = SecurityProtocolType.Ssl3 | SecurityProtocolType.Tls | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
                 }
 
                 #endregion
@@ -264,7 +264,7 @@ namespace EHttp
                 {
                     // https
                     //ServicePointManager.ServerCertificateValidationCallback = delegate { return true; };
-                    ServicePointManager.SecurityProtocol = data.HttpsType;
+                    ServicePointManager.SecurityProtocol = SecurityProtocolType.Ssl3 | SecurityProtocolType.Tls | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
                 }
 
                 #endregion

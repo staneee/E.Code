@@ -24,8 +24,6 @@ namespace EHttp
             AcceptEncoding = HttpHeader.ACCEPT_ENCODING;
             Method = RequestType.GET;
             KeepAlive = true;
-
-            HttpsType = HttpHeader.HTTPS_Ssl3;
         }
 
 
@@ -109,10 +107,6 @@ namespace EHttp
         /// </summary>
         public string UpgradeInsecureRequests { get; set; }
 
-        /// <summary>
-        /// HTTPS 类型,默认SSL3
-        /// </summary>
-        public SecurityProtocolType HttpsType { get; set; }
 
         /// <summary>
         /// 请求携带的数据
