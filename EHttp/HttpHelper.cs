@@ -175,13 +175,21 @@ namespace EHttp
                     data.Cookies = response.Cookies;
                     var stream = response.GetResponseStream();
 
-                    try
+                    #region GZIP解压
+
+                    if (response.ContentEncoding.ToLower().Contains("gzip"))
                     {
-                        stream = new GZipStream(stream, CompressionMode.Decompress);
+                        try
+                        {
+                            stream = new GZipStream(stream, CompressionMode.Decompress);
+                        }
+                        catch
+                        {
+                        }
                     }
-                    catch
-                    {
-                    }
+
+                    #endregion
+
 
                     using (var sr = new StreamReader(stream, Encoding.UTF8))
                     {
